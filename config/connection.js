@@ -1,9 +1,9 @@
 const mongoose=require('mongoose');
-
+require('dotenv').config()
 function connect(){
     try {
-        mongoose.connect('mongodb://localhost:27017/courses');
-        console.log("DB connsction successfull!");
+        mongoose.connect(process.env.DATABASE_URL);
+        console.log("DB connection successfull!");
     } catch (error) {
         console.error("error in DB", error);
     }

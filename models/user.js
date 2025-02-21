@@ -21,5 +21,5 @@ const User=new mongoose.Schema({
 const usermodel=mongoose.model('users' , User);
 
 module.exports ={
-    usermodel:usermodel
+    usermodel
 }
