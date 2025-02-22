@@ -12,7 +12,7 @@ const Course=new Schema({
         
     },
     price:{
-        type:Number,
+        type:String,
         required:true
     },
     creatorId:{
