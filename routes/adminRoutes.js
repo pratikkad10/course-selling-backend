@@ -1,16 +1,18 @@
 const express=require('express');
-const { signupHandler, signinHandler } = require('../controller/authentication');
+const { signupHandler, signinHandler } = require('../controller/AdminAuthentication');
 const router=express.Router();
 
 router.post('/signup', signupHandler);
 
 router.post('/signin', signinHandler);
 
+//update course
 router.put('/course', (req,res)=>{
     res.json({
         message:"Update course!"
     })
 })
+
 
 router.post('/course', (req,res)=>{
     res.json({
@@ -24,7 +26,7 @@ router.delete('/course', (req,res)=>{
     })
 })
 
-router.get('/courses', (req,res)=>{
+router.get('/getcourses', (req,res)=>{
     res.json({
         message:"All courses for Admin!"
     })
