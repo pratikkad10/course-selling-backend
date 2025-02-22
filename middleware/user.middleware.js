@@ -1,20 +1,20 @@
 const jwt=require('jsonwebtoken');
-const JWT_SECRET="pkk123";
+require('dotenv').config();
+const JWT_USER_PASSWORD=process.env.JWT_USER_PASSWORD;
 
-async function auth(req,res,next){
+async function userAuthentication(req,res,next){
     const token=req.header.token;
-    const response=jwt.verify(token, JWT_SECRET);
+    const response=jwt.verify(token, JWT_USER_PASSWORD);
 
     if(!response){
         return res.json({
             message:"Invalid token!"
         })
     }
-
     res.userId=response.id;
     next();
 }
 
 module.exports ={
-    auth , JWT_SECRET
+    userAuthentication 
 }

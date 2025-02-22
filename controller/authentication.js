@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken');
-const {auth, JWT_SECRET} = require('../middleware/middleware');
+const {userAuthentication} = require('../middleware/user.middleware');
 const {usermodel} = require('../models/user'); 
 
 
@@ -50,7 +50,7 @@ async function signinHandler(req,res){
         if(user&&passwordMatch){
             const token=jwt.sign({
                 id:user._id.toString(),
-            }, JWT_SECRET)
+            }, process.env.JWT_USER_PASSWORD)
             res.json({message:"Welcome!", token:token});
         }
     } catch (error) {
