@@ -22,7 +22,6 @@ router.put("/course",adminAuthentication, async (req, res) => {
         $set: { title, description, price } 
       }
     );
-    console.log("updated course ", updateCourse);
     
     res.json({
       message: "course updated!",
